@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import StyledConnect from '../../components/StyledConnect';
 import StyledButton from '../../components/StyledButton';
+import StyledFlex from '../../components/StyledFlex';
 
 import Fields from './Fields';
 
@@ -36,20 +37,22 @@ const Connection = () => {
         update={update}
         state={{ username, password }}
       />
-      <StyledButton
-        onClick={signin}
-        >Signup
-      </StyledButton>
-      <StyledButton>
-        <Link to="/account/signup">
-          Inscription
-        </Link>
-      </StyledButton>
-      <StyledButton>
-        <Link to="/account/missing">
-          Inscription
-        </Link>
-      </StyledButton>
+      <StyledFlex>
+        <StyledButton
+          onClick={signin}
+          >Signup
+        </StyledButton>
+        <StyledButton>
+          <Link to="/account/signup">
+            Inscription
+          </Link>
+        </StyledButton>
+        <StyledButton>
+          <Link to="/account/missing">
+            Missing
+          </Link>
+        </StyledButton>
+      </StyledFlex>
     </StyledConnect >
   );
 }

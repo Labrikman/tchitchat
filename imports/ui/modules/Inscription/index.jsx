@@ -3,6 +3,7 @@ import { Accounts } from 'meteor/accounts-base';
 import { Link } from 'react-router-dom';
 import StyledConnect from '../../components/StyledConnect';
 import StyledButton from '../../components/StyledButton';
+import StyledFlex from '../../components/StyledFlex';
 
 import Fields from './Fields';
 
@@ -43,22 +44,24 @@ const Inscription = () => {
           email,
         }}
       />
-      <StyledButton
-        onClick={signup}
-      >Signup
-      </StyledButton>
-      <StyledButton>
-        <Link 
-          to="/account/signin"
-          >Connection
-        </Link>
-      </StyledButton>
-      <StyledButton>
-        <Link 
-          to="/account/missing"
-          >Connection
-        </Link>
-      </StyledButton>
+      <StyledFlex>
+        <StyledButton
+          onClick={signup}
+        >Signup
+        </StyledButton>
+        <StyledButton>
+          <Link 
+            to="/account/signin"
+            >Connection
+          </Link>
+        </StyledButton>
+        <StyledButton>
+          <Link 
+            to="/account/missing"
+            >Missing
+          </Link>
+        </StyledButton>
+      </StyledFlex>
     </StyledConnect>
   );
 }

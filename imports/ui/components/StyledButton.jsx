@@ -10,6 +10,7 @@ const StyledButton = styled.button`
     width: fit-content;
     margin: 20px 0 0 0;
     padding:10px;
+    text-decoration: none;
 `;
 
 

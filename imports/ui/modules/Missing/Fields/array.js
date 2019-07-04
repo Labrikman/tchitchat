@@ -1,7 +1,16 @@
 const fields = [
-  { name: "email",      type: "text",      placeholder: "Email"     },
-  { name: "password",   type: "password",  placeholder: "Password"  },
-  { name: "username",   type: "text",      placeholder: "Username" },
+  { 
+    name: "email",      
+    type: "text",      
+    placeholder: "Email",
+    color: "red",     
+  },
+  { 
+    name: "username",   
+    type: "text",      
+    placeholder: "Username", 
+    color: "red",
+  },
 ];
 
 export default fields;
