@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledFlex = styled.div`
+const StyledLink = styled.div`
     display:flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -8,4 +8,4 @@ const StyledFlex = styled.div`
 `;
 
 
-export default StyledFlex;
+export default StyledLink;

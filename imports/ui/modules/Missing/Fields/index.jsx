@@ -11,7 +11,7 @@ const Fields = ({ update, state }) => {
       value={state[field.name]}
       placeholder={field.placeholder}
       name={field.name}
-      color={field.name}
+      color={field.color}
     />
   ))
 }

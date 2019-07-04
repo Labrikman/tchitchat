@@ -1,12 +1,14 @@
 import React, { useState, useCallback } from 'react';
 import { Accounts } from 'meteor/accounts-base';
 import { Link } from 'react-router-dom';
+import StyledConnect from '../../components/StyledConnect';
+import StyledButton from '../../components/StyledButton';
+import StyledFlex from '../../components/StyledFlex';
 
 import Fields from './Fields';
 
 const Inscription = () => {
   const [ email,    setEmail    ] = useState("");
-  const [ password, setPassword ] = useState("");
   const [ username, setUsername ] = useState("");
 
   const update = useCallback((e, { name, value }) => {
@@ -31,22 +33,29 @@ const Inscription = () => {
   }, [ email, password, username ]);
 
   return (
-    <div>
-      <h1>Inscription</h1>
+    <StyledConnect>
+      <h1>Mot de passe oublié</h1>
       <Fields
         update={update}
         state={{
-          password,
           username,
           email,
         }}
       />
-      <button
-        onClick={signup}
-      >Signup
-      </button>
-      <Link to="signin">Connection</Link>
-    </div>
+      <StyledFlex>
+        <StyledButton>
+          <Link to="/account/signup">
+            Inscription
+          </Link>
+        </StyledButton>
+        <StyledButton>
+          <Link 
+            to="/account/signin"
+            >Connection
+          </Link>
+        </StyledButton>
+      </StyledFlex>
+    </StyledConnect>
   );
 }
 
