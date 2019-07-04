@@ -11,7 +11,7 @@ const MyRoute = ({ logged, path, component, userId }) => {
         return <Redirect to="/rooms" />
     }
     if (logged) {
-        return <Redirect to="/signin" />
+        return <Redirect to="/account/signin" />
     }
     return <Route path={path} component={component} />
 };

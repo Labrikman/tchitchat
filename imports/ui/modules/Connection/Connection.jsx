@@ -34,8 +34,8 @@ class Connection extends Component {
       <div>
         <h1>Connection</h1>
         <Fields 
-        update={this.update}
-        state={this.state}
+          update={this.update}
+          state={this.state}
         />
         <button
           onClick={this.signin}

@@ -41,7 +41,7 @@ const Connection = () => {
         >Signup
       </StyledButton>
       <StyledButton>
-        <Link to="/signup">
+        <Link to="/account/signup">
           Inscription
         </Link>
       </StyledButton>
