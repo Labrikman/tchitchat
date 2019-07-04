@@ -8,7 +8,7 @@ const MyRoute = ({ logged, path, component, userId }) => {
         if (logged) {
             return <Route path={path} component={component} />
         }
-        return <Redirect to="/home" />
+        return <Redirect to="/rooms" />
     }
     if (logged) {
         return <Redirect to="/signin" />

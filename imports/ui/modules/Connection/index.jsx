@@ -5,8 +5,6 @@ import { withTracker } from 'meteor/react-meteor-data';
 import StyledConnect from '../../components/StyledConnect';
 import StyledButton from '../../components/StyledButton';
 
-
-
 import Fields from './Fields';
 
 const Connection = () => {
@@ -40,9 +38,13 @@ const Connection = () => {
       />
       <StyledButton
         onClick={signin}
-      >Signup
+        >Signup
       </StyledButton>
-      <Link to="/signup">Inscription</Link>
+      <StyledButton>
+        <Link to="/signup">
+          Inscription
+        </Link>
+      </StyledButton>
     </StyledConnect >
   );
 }

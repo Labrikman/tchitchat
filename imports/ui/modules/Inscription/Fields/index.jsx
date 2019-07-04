@@ -2,6 +2,7 @@ import React from 'react';
 import CustomInput from '/imports/ui/components/CustomInput';
 import fields from './array';
 
+
 const Fields = ({ update, state }) => {
   return fields.map(field => (
     <CustomInput
@@ -11,6 +12,7 @@ const Fields = ({ update, state }) => {
       value={state[field.name]}
       placeholder={field.placeholder}
       name={field.name}
+      color={field.name}
     />
   ))
 }

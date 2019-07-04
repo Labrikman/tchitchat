@@ -1,6 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { Accounts } from 'meteor/accounts-base';
 import { Link } from 'react-router-dom';
+import StyledConnect from '../../components/StyledConnect';
+import StyledButton from '../../components/StyledButton';
 
 import Fields from './Fields';
 
@@ -31,8 +33,8 @@ const Inscription = () => {
   }, [ email, password, username ]);
 
   return (
-    <div>
-      <h1>Inscription</h1>
+    <StyledConnect>
+      <h1>Tchitchat inscription</h1>
       <Fields
         update={update}
         state={{
@@ -41,12 +43,17 @@ const Inscription = () => {
           email,
         }}
       />
-      <button
+      <StyledButton
         onClick={signup}
       >Signup
-      </button>
-      <Link to="signin">Connection</Link>
-    </div>
+      </StyledButton>
+      <StyledButton>
+        <Link 
+          to="signin"
+          >Connection
+        </Link>
+      </StyledButton>
+    </StyledConnect>
   );
 }
 
