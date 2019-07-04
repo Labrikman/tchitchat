@@ -1,6 +1,6 @@
 const customColors = {
-    red:   "#e84118",
-    green: "#44bd32"
+    red:   "#ff4500",
+    green: "#445299"
 }
 
 const colors = (color) => customColors[color] || "lime";

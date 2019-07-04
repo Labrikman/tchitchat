@@ -33,7 +33,7 @@ const Connection = () => {
 
   return (
     <StyledConnect >
-      <h1>Connection</h1>
+      <h1>Tchitchat connection</h1>
       <Fields
         update={update}
         state={{ username, password }}
