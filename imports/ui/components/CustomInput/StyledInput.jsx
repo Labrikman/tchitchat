@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import colors from '/imports/utils/colors';
 
 const StyledInput = styled.input`
-    font-size: 5rem;
+    font-size: 3rem;
     border: none;
     border-bottom: 2px solid ${({color}) => colors(color)};
     :focus{

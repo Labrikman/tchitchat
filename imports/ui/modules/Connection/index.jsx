@@ -2,8 +2,8 @@ import React, { useState, useCallback } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
-import StyledConnect from './StyledConnect';
-import StyledButton from './StyledButton';
+import StyledConnect from '../../components/StyledConnect';
+import StyledButton from '../../components/StyledButton';
 
 
 
