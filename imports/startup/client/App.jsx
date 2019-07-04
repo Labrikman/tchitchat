@@ -14,15 +14,16 @@ import { Verify }     from 'crypto';
 const App = () => (
   <Router>
     <Switch>
-      <MyRoute path="/account/signup"         component={Inscription}   />
-      <MyRoute path="/account/signin"         component={Connection}    />
-      <MyRoute path="/account/missing"        component={Missing}       />
-      <MyRoute path="/account/setting"        component={Setting}       />
-      <MyRoute path="/account/verify"         component={Verify}        />  
-      <MyRoute path="/rooms"          component={Rooms}         logged />
-      <MyRoute path="/user-connected" component={UserConnected} logged />
-      <MyRoute path="/tchat"          component={Tchat}         logged />
-      <MyRoute path="/"               component={Rooms}         logged />
+      <MyRoute path="/account/signup"         component={Inscription}      />
+      <MyRoute path="/account/signin"         component={Connection}       />
+      <MyRoute path="/account/missing"        component={Missing}          />
+      <MyRoute path="/account/setting"        component={Setting}          />
+      <MyRoute path="/account/verify"         component={Verify}           />  
+      <MyRoute path="/rooms"              component={Rooms}         logged />
+      <MyRoute path="/user-connected"     component={UserConnected} logged />
+      <MyRoute path="/tchat"              component={Tchat}         logged />
+      <MyRoute path="/landing"            component={landing}         logged />
+      <MyRoute path="/"                   component={Rooms}         logged />
     </Switch>
   </Router>
 );

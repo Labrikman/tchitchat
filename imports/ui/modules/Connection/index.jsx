@@ -45,6 +45,11 @@ const Connection = () => {
           Inscription
         </Link>
       </StyledButton>
+      <StyledButton>
+        <Link to="/account/missing">
+          Inscription
+        </Link>
+      </StyledButton>
     </StyledConnect >
   );
 }

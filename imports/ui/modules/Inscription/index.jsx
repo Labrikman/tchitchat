@@ -49,7 +49,13 @@ const Inscription = () => {
       </StyledButton>
       <StyledButton>
         <Link 
-          to="signin"
+          to="/account/signin"
+          >Connection
+        </Link>
+      </StyledButton>
+      <StyledButton>
+        <Link 
+          to="/account/missing"
           >Connection
         </Link>
       </StyledButton>
