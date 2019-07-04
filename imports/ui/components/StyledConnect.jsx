@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 const StyledConnect = styled.div`
     font-size: 1rem;
-    color: orangered;
-    background-color: white;
-    width: 80vw;
+    color: lime;
+    background-color: black;
+    width: 100vw;
     height:100vh;
     display:flex;
     margin:-20px;

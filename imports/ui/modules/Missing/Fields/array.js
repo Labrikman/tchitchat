@@ -3,13 +3,13 @@ const fields = [
     name: "email",      
     type: "text",      
     placeholder: "Email",
-    color: "red",     
+    color: "bleu",     
   },
   { 
     name: "username",   
     type: "text",      
     placeholder: "Username", 
-    color: "red",
+    color: "bleu",
   },
 ];
 

@@ -5,6 +5,7 @@ const StyledInput = styled.input`
     font-size: 2rem;
     border: none;
     width:80vw;
+    background-color:black;
     border-bottom: 2px solid ${({color}) => colors(color)};
     :focus{
         outline:none;

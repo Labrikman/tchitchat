@@ -16,21 +16,18 @@ const Inscription = () => {
       case 'email':
         setEmail(value);
         break;
-      case 'password':
-        setPassword(value);
-        break;
       case 'username':
         setUsername(value);
         break;
     }
-  }, [ setEmail, setPassword, setUsername ]);
+  }, [ setEmail, setUsername ]);
 
   const signup = useCallback(() => {
-    Accounts.createUser({ email, password, username }, (err) => {
+    Accounts.createUser({ email, username }, (err) => {
       if (err)
         console.log(err);
     });
-  }, [ email, password, username ]);
+  }, [ email, username ]);
 
   return (
     <StyledConnect>
