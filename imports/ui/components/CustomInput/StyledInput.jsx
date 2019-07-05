@@ -4,7 +4,7 @@ import colors from '/imports/utils/colors';
 const StyledInput = styled.input`
     font-size: 2rem;
     border: none;
-    width:80vw;
+    width:250px;
     background-color:black;
     border-bottom: 2px solid ${({color}) => colors(color)};
     :focus{

@@ -9,7 +9,7 @@ const StyledButton = styled.button`
     border-radius:20px;
     background-color: lime;
     width: fit-content;
-    margin: 20px 0 0 0;
+    margin: 20px 10px 0 0;
     padding:10px;
     text-decoration: none;
 `;
