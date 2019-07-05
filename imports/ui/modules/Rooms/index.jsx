@@ -9,7 +9,7 @@ import StyledFlex from '../../components/StyledFlex';
 import Articles from '/imports/api/articles';
 
 const REMOVE = ({ target: { id } }) => {
-  Meteor.call('articles.remove', { id }, (err) => {
+  Meteor.call('Artices.remove', { id }, (err) => {
     if (err) console.log(err);
   });
 }
@@ -46,7 +46,7 @@ const Home = ({ user, userId, loading, articles }) => {
                     id={article._id}
                     onClick={REMOVE}
                   >Supprimer</button>
-                  <Link to={`/articles/edit/${article._id}`} >Modifier</Link>
+                  <Link to={`/article/edit/${article._id}`} >Modifier</Link>
                 </StyledButton>
               )}
               <div dangerouslySetInnerHTML={{ __html: article.content }} />
