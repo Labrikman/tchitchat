@@ -4,7 +4,7 @@ const Flex = styled.section`
     display:flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 80vw;
+    width: fit-content;
     margin: 20px 0;
 `;
 

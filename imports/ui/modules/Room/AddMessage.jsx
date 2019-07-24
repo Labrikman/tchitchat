@@ -9,30 +9,34 @@ import StyledLink from '../../components/StyledLink';
 
 class AddMessage extends Component {
   state={
-    userId: "",
+    username: "",
     roomId: "",
     content: "",
   }
 
-  static getDerivedStateFromProps(props) {
-    if (!props.userId)
-      props.history.push('/signin');
-    return {};
-  };
-
-  update = (e, { name, value }) => this.setState({ [name]: value });
-
+  update = (e, { name, value }) => {
+    this.setState({ [name]: value });
+  }
+  
+  
+  handleClick() {
+    this.setState({
+      posts: [
+        ...this.state.posts,
+        this.state.input
+      ],
+      input: '' // add this line to clear your input field when a new post is submitted
+    })
+  }
   send = () => {
-    const { content, userId, roomId  } = this.state;
+    const { content, username, roomId  } = this.state;
     const { history } = this.props;
     
-    Meteor.call("message.create", { content, userId, roomId }, (err) => {
+    Meteor.call("message.create", { content, username, roomId }, (err) => {
       if (err)
         console.log(err);
       else
-        userId= this.userId;
         history.push('/room/:id');
-        content='';
     });
   }
 

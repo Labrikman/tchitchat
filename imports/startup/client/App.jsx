@@ -18,12 +18,12 @@ const App = () => (
       <MyRoute path="/account/signin"         component={Connection}    />
       <MyRoute path="/account/missing"        component={Missing}       />
       <MyRoute path="/account/setting"        component={Setting}       />
-      <MyRoute path="/account/verify"         component={Verify}        />
+      {/* <MyRoute path="/account/verify"         component={Verify}        /> */}
       <MyRoute path="/new-room/add"           component={NewRoom}       logged/>
       <MyRoute path="/new-room/edit/:id"      component={NewRoom}       logged/>  
       <MyRoute path="/rooms"                  component={Rooms}         logged />
-      {/* <MyRoute path="/user-connected"         component={UserConnected} logged /> */}
       <MyRoute path="/Room/:id"               component={Room}          logged />
+      {/* <MyRoute path="/user-connected"         component={UserConnected} logged /> */}
       {/* <MyRoute path="/landing"                component={Landing}       logged />        */}
       <MyRoute path="/"                       component={Rooms}         logged />
     </Switch>

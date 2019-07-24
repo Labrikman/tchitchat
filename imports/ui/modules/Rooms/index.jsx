@@ -7,6 +7,7 @@ import Button from '../../components/Button';
 import Flex from '../../components/Flex';
 import Form from '../../components/Form';
 import StyledLink from '../../components/StyledLink';
+import Article from '../../components/Article';
 
 import Rooms from '/imports/api/rooms';
 
@@ -25,7 +26,7 @@ const Home = ({ user, userId, loading, rooms }) => {
 
   return (
     <Body>
-      <Form>
+      <div>
         <h1>Hello {user.username} !</h1>
         
         {loading ? (
@@ -33,7 +34,7 @@ const Home = ({ user, userId, loading, rooms }) => {
         ) : (
           <div>
             {rooms.map(room => (
-              <article key={room._id} style={{ border: '1px solid aqua', padding: '10px', maxWidth: '325px'}} >
+              <Article key={room._id}>
                 <h3>{room.title}</h3>
                 <Flex>
                   <StyledLink 
@@ -55,7 +56,7 @@ const Home = ({ user, userId, loading, rooms }) => {
                     </div>
                   )}
                 </Flex>
-              </article>
+              </Article>
             ))}
           </div>
         )}
@@ -66,7 +67,7 @@ const Home = ({ user, userId, loading, rooms }) => {
           </Button>
           <StyledLink to="/new-room/add">Create room</StyledLink>
         </Flex>
-      </Form>
+      </div>
     </Body>
   );
 }

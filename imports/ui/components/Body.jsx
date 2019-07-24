@@ -9,7 +9,7 @@ const Body = styled.main`
     display:flex;
     margin:0px;
     padding:10px;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     flex-direction: column;
     justify-content: center;
 `;
