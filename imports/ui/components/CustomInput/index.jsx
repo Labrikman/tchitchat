@@ -1,7 +1,7 @@
 import React from 'react';
 import StyledInput from './StyledInput';
 
-const CustomInput = ({ update, blabla, ...rest }) => (
+const CustomInput = ({ update, ...rest }) => (
   <div>
     <StyledInput
       onChange={(e) =>

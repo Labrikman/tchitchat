@@ -10,8 +10,6 @@ import UserConnected  from '/imports/ui/modules/UserConnected';
 import Room        from '/imports/ui/modules/Room';
 import Setting        from '/imports/ui/modules/Setting';
 import NewRoom        from '/imports/ui/modules/NewRoom';
-import { Verify }     from 'crypto';
-import { Landing }    from 'crypto';
 
 const App = () => (
   <Router>
@@ -24,9 +22,9 @@ const App = () => (
       <MyRoute path="/new-room/add"           component={NewRoom}       logged/>
       <MyRoute path="/new-room/edit/:id"      component={NewRoom}       logged/>  
       <MyRoute path="/rooms"                  component={Rooms}         logged />
-      <MyRoute path="/user-connected"         component={UserConnected} logged />
+      {/* <MyRoute path="/user-connected"         component={UserConnected} logged /> */}
       <MyRoute path="/Room/:id"               component={Room}          logged />
-      <MyRoute path="/landing"                component={Landing}       logged />       
+      {/* <MyRoute path="/landing"                component={Landing}       logged />        */}
       <MyRoute path="/"                       component={Rooms}         logged />
     </Switch>
   </Router>
