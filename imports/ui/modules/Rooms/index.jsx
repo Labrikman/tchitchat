@@ -5,7 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import Body from '../../components/Body';
 import Button from '../../components/Button';
 import Flex from '../../components/Flex';
-import Form from '../../components/Form';
+import Center from '../../components/Center';
 import StyledLink from '../../components/StyledLink';
 import Article from '../../components/Article';
 
@@ -26,7 +26,7 @@ const Home = ({ user, userId, loading, rooms }) => {
 
   return (
     <Body>
-      <div>
+      <Center>
         <h1>Hello {user.username} !</h1>
         
         {loading ? (
@@ -67,7 +67,7 @@ const Home = ({ user, userId, loading, rooms }) => {
           </Button>
           <StyledLink to="/new-room/add">Create room</StyledLink>
         </Flex>
-      </div>
+      </Center>
     </Body>
   );
 }

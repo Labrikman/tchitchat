@@ -22,9 +22,9 @@ const Room = ({ user, userId, messages }) => {
           {/* <h1>{room.title}</h1> */}
             {messages.map(message => (
               <Article 
-                key={user._id} 
+                key={message._id} 
                 style={ message.userId===userId ? { textAlign:'right' } : {textAlign: 'left'}}>
-                <h6>{message.username}</h6>
+                <h6>{messages.username}</h6>
                 <div dangerouslySetInnerHTML={{ __html: message.content }} />
               </Article>
             ))}

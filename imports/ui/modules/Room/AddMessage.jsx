@@ -17,17 +17,11 @@ class AddMessage extends Component {
   update = (e, { name, value }) => {
     this.setState({ [name]: value });
   }
-  
-  
-  handleClick() {
-    this.setState({
-      posts: [
-        ...this.state.posts,
-        this.state.input
-      ],
-      input: '' // add this line to clear your input field when a new post is submitted
-    })
+ 
+  resetInput = () => {
+    this.setState({ content: "" });
   }
+
   send = () => {
     const { content, username, roomId  } = this.state;
     const { history } = this.props;
@@ -36,6 +30,7 @@ class AddMessage extends Component {
       if (err)
         console.log(err);
       else
+        this.resetInput();
         history.push('/room/:id');
     });
   }
