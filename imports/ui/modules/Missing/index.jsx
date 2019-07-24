@@ -1,9 +1,11 @@
 import React, { useState, useCallback } from 'react';
 import { Accounts } from 'meteor/accounts-base';
 import { Link } from 'react-router-dom';
-import StyledConnect from '../../components/StyledConnect';
-import StyledButton from '../../components/StyledButton';
-import StyledFlex from '../../components/StyledFlex';
+import Body from '../../components/Body';
+import Button from '../../components/Button';
+import Flex from '../../components/Flex';
+import Form from '../../components/Form';
+import StyledLink from '../../components/StyledLink';
 
 import Fields from './Fields';
 
@@ -30,29 +32,27 @@ const Inscription = () => {
   }, [ email, username ]);
 
   return (
-    <StyledConnect>
-      <h1>Mot de passe oublié</h1>
-      <Fields
-        update={update}
-        state={{
-          username,
-          email,
-        }}
-      />
-      <StyledFlex>
-        <StyledButton>
-          <Link to="/account/signup">
-            Inscription
-          </Link>
-        </StyledButton>
-        <StyledButton>
-          <Link 
-            to="/account/signin"
-            >Connection
-          </Link>
-        </StyledButton>
-      </StyledFlex>
-    </StyledConnect>
+    <Body>
+      <Form>
+        <h1>Mot de passe oublié</h1>
+        <Fields
+          update={update}
+          state={{
+            username,
+            email,
+          }}
+        />
+        <Flex>
+            <StyledLink to="/account/signup">
+              Inscription
+            </StyledLink>
+            <StyledLink 
+              to="/account/signin"
+              >Connection
+            </StyledLink>
+        </Flex>
+      </Form>
+    </Body>
   );
 }
 

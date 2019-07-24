@@ -4,6 +4,6 @@ const customColors = {
     blue: "deepskyblue",
 }
 
-const colors = (color) => customColors[color] || "lime";
+const colors = (color) => customColors[color] || "aqua";
 
 export default colors;

@@ -2,19 +2,21 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Redirect, Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
-import StyledConnect from '../../components/StyledConnect';
-import StyledButton from '../../components/StyledButton';
-import StyledFlex from '../../components/StyledFlex';
+import Body from '../../components/Body';
+import Button from '../../components/Button';
+import Flex from '../../components/Flex';
+import Form from '../../components/Form';
+import StyledLink from '../../components/StyledLink';
 
-import Articles from '/imports/api/articles';
+import Rooms from '/imports/api/rooms';
 
 const REMOVE = ({ target: { id } }) => {
-  Meteor.call('Artices.remove', { id }, (err) => {
+  Meteor.call('rooms.remove', { id }, (err) => {
     if (err) console.log(err);
   });
 }
 
-const Home = ({ user, userId, loading, articles }) => {
+const Home = ({ user, userId, loading, rooms }) => {
   if (!userId) {
     return (
       <Redirect to="/accounts/signin" />
@@ -22,50 +24,61 @@ const Home = ({ user, userId, loading, articles }) => {
   }
 
   return (
-    <StyledConnect>
-      <h1>Hello {user.username} !</h1>
-      <StyledFlex>
-        <StyledButton
-          onClick={Meteor.logout}
-        >Logout
-        </StyledButton>
-        <StyledButton>
-          <Link to="/articles/add">Add a Tchatrooms</Link>
-        </StyledButton>
-      </StyledFlex>
-      {loading ? (
-        <h2>Chargement...</h2>
-      ) : (
-        <div>
-          {articles.map(article => (
-            <article key={article._id} style={{ border: '1px solid black' }} >
-              <h3>{article.title}</h3>
-              {(article.userId === userId) && (
-                <StyledButton>
-                  <button
-                    id={article._id}
-                    onClick={REMOVE}
-                  >Supprimer</button>
-                  <Link to={`/article/edit/${article._id}`} >Modifier</Link>
-                </StyledButton>
-              )}
-              <div dangerouslySetInnerHTML={{ __html: article.content }} />
-            </article>
-          ))}
-        </div>
-      )}
-    </StyledConnect>
+    <Body>
+      <Form>
+        <h1>Hello {user.username} !</h1>
+        
+        {loading ? (
+          <h2>Chargement...</h2>
+        ) : (
+          <div>
+            {rooms.map(room => (
+              <article key={room._id} style={{ border: '1px solid aqua', padding: '10px', maxWidth: '325px'}} >
+                <h3>{room.title}</h3>
+                <Flex>
+                  <StyledLink 
+                    to={`/room/${room._id}`}
+                    title={room.title}
+                    >Message
+                  </StyledLink>
+                  {(room.userId === userId) && (
+                    <div>
+                        <StyledLink 
+                          to={`/new-room/edit/${room._id}`} 
+                          >Modifier
+                        </StyledLink>
+                      <Button
+                          id={room._id}
+                          onClick={REMOVE}
+                        >Supprimer
+                      </Button>
+                    </div>
+                  )}
+                </Flex>
+              </article>
+            ))}
+          </div>
+        )}
+        <Flex>
+          <Button
+            onClick={Meteor.logout}
+          >Logout
+          </Button>
+          <StyledLink to="/new-room/add">Create room</StyledLink>
+        </Flex>
+      </Form>
+    </Body>
   );
 }
 
 export default withTracker(() => {
-  const articlesPublication = Meteor.subscribe('articles.lasts');
-  const loading = !articlesPublication.ready();
-  const articles = Articles.find({}, { sort: { createdAt: -1 } }).fetch();
+  const roomsPublication = Meteor.subscribe('rooms.lasts');
+  const loading = !roomsPublication.ready();
+  const rooms = Rooms.find({}, { sort: { createdAt: -1 } }).fetch();
   return {
     userId: Meteor.userId(),
     user: Meteor.user() || {},
     loading,
-    articles,
+    rooms,
   }
 })(Home);
