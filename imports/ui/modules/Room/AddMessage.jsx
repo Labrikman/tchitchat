@@ -22,6 +22,7 @@ class AddMessage extends Component {
     this.setState({ content: "" });
   }
 
+
   send = () => {
     const { content, username, roomId  } = this.state;
     const { history } = this.props;
@@ -40,6 +41,7 @@ class AddMessage extends Component {
       this.send();
     }
   }
+
   render() {
     const { content } = this.state;
     return (

@@ -11,6 +11,7 @@ Meteor.methods({
         content,
         username,
         roomId,
+        roomId: this.roomId,
         createdAt: new Date(),
         userId: this.userId,
       });
