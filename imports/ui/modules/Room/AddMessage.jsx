@@ -32,7 +32,6 @@ class AddMessage extends Component {
         console.log(err);
       else
         this.resetInput();
-        // history.push('/room/:id');
     });
   }
 
