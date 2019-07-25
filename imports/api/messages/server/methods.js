@@ -6,7 +6,9 @@ Meteor.methods({
     if (!this.userId) {
       throw new Meteor.Error('403', 'You must be connected');
     }
-    if (content!=''){
+    if (content===''){
+      throw new Meteor.Error('403', 'Content cannot be empty');
+    }
       Messages.insert({
         content,
         username,
@@ -15,6 +17,6 @@ Meteor.methods({
         createdAt: new Date(),
         userId: this.userId,
       });
-    }
+    
   }
 });

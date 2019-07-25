@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
-import CustomInput from '../../components/CustomInput';
+import CustomInput from '/imports/ui/components/CustomInput';
 import { withTracker } from 'meteor/react-meteor-data'
-import Body from '../../components/Body';
-import Button from '../../components/Button';
+import Body from '/imports/ui/components/Body';
+import Button from '/imports/ui/components/Button';
 import { Redirect, Link } from 'react-router-dom';
-import StyledLink from '../../components/StyledLink';
-import Center from '../../components/Center';
-import Flex from '../../components/Flex';
+import StyledLink from '/imports/ui/components/StyledLink';
+import Center from '/imports/ui/components/Center';
+import Flex from '/imports/ui/components/Flex';
 
 class NewRoom extends Component {
   state={

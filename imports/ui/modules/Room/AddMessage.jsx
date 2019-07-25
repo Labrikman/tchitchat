@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
-import CustomInput from '../../components/CustomInput';
+import CustomInput from '/imports/ui/components/CustomInput';
 import { withTracker } from 'meteor/react-meteor-data'
-import Button from '../../components/Button';
-import Flex from '../../components/Flex';
-import Center from '../../components/Center';
-import StyledLink from '../../components/StyledLink';
+import Button from '/imports/ui/components/Button';
+import Flex from '/imports/ui/components/Flex';
+import Center from '/imports/ui/components/Center';
+import StyledLink from '/imports/ui/components/StyledLink';
 
 class AddMessage extends Component {
   state={
@@ -62,6 +62,12 @@ class AddMessage extends Component {
   }
 }
  
-export default withTracker(() => ({
-    userId: Meteor.userId(),
-}))(AddMessage);
+export default withTracker(( match ) => {
+    const roomId = match.params.id || "";
+    const username = Meteor.user.userId || "";
+    return {
+      userId: Meteor.userId(),
+      roomId,
+      username,
+    }
+})(AddMessage);

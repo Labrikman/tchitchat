@@ -2,12 +2,12 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Redirect, Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
-import Body from '../../components/Body';
-import Button from '../../components/Button';
-import Flex from '../../components/Flex';
-import Center from '../../components/Center';
-import StyledLink from '../../components/StyledLink';
-import Article from '../../components/Article';
+import Body from '/imports/ui/components/Body';
+import Button from '/imports/ui/components/Button';
+import Flex from '/imports/ui/components/Flex';
+import Center from '/imports/ui/components/Center';
+import StyledLink from '/imports/ui/components/StyledLink';
+import Article from '/imports/ui/components/Article';
 
 import Rooms from '/imports/api/rooms';
 

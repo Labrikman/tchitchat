@@ -2,8 +2,8 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Redirect, Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
-import Body from '../../components/Body';
-import Button from '../../components/Button';
+import Body from '/imports/ui/components/Body';
+import Button from '/imports/ui/components/Button';
 
 import Articles from '/imports/api/articles';
 

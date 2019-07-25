@@ -6,7 +6,6 @@ import Inscription    from '/imports/ui/modules/Inscription';
 import Connection     from '/imports/ui/modules/Connection';
 import Missing        from '/imports/ui/modules/Missing';
 import Rooms          from '/imports/ui/modules/Rooms';
-import UserConnected  from '/imports/ui/modules/UserConnected';
 import Room        from '/imports/ui/modules/Room';
 import Setting        from '/imports/ui/modules/Setting';
 import NewRoom        from '/imports/ui/modules/NewRoom';

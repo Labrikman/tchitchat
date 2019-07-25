@@ -2,11 +2,11 @@ import React, { useState, useCallback } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
-import Body from '../../components/Body';
-import Button from '../../components/Button';
-import Flex from '../../components/Flex';
-import Form from '../../components/Form';
-import StyledLink from '../../components/StyledLink';
+import Body from '/imports/ui/components/Body';
+import Button from '/imports/ui/components/Button';
+import Flex from '/imports/ui/components/Flex';
+import Form from '/imports/ui/components/Form';
+import StyledLink from '/imports/ui/components/StyledLink';
 
 import Fields from './Fields';
 
