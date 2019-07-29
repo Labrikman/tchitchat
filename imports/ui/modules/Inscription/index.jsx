@@ -5,6 +5,7 @@ import Body from '/imports/ui/components/Body';
 import Button from '/imports/ui/components/Button';
 import Flex from '/imports/ui/components/Flex';
 import Form from '/imports/ui/components/Form';
+import Center from '/imports/ui/components/Center';
 import StyledLink from '/imports/ui/components/StyledLink';
 
 import Fields from './Fields';
@@ -28,40 +29,48 @@ const Inscription = () => {
     }
   }, [ setEmail, setPassword, setUsername ]);
 
-  const signup = useCallback(() => {
+  const signup = useCallback((e) => {
     Accounts.createUser({ email, password, username }, (err) => {
       if (err)
         console.log(err);
+    });
+    e.preventDefault();
+    Meteor.loginWithPassword(username, password, (err) => {
+      if (err)
+        console.log(err);
+        setErreur(1);  
     });
   }, [ email, password, username ]);
 
   return (
     <Body>
-      <Form>
-        <h1>Tchitchat inscription</h1>
-        <Fields
-          update={update}
-          state={{
-            password,
-            username,
-            email,
-          }}
-        />
-        <Flex>
-          <Button
-            onClick={signup}
-          >Signup
-          </Button>
-            <StyledLink 
-              to="/account/signin"
-              >Connection
-            </StyledLink>
-            <StyledLink 
-              to="/account/missing"
-              >Missing
-            </StyledLink>
-        </Flex>
-      </Form>
+      <Center>
+        <Form>
+          <h1>Tchitchat inscription</h1>
+          <Fields
+            update={update}
+            state={{
+              password,
+              username,
+              email,
+            }}
+          />
+          <Flex>
+            <Button
+              onClick={signup}
+            >Signup
+            </Button>
+              <StyledLink 
+                to="/account/signin"
+                >Connection
+              </StyledLink>
+              <StyledLink 
+                to="/account/missing"
+                >Missing
+              </StyledLink>
+          </Flex>
+        </Form>
+      </Center>
     </Body>
   );
 }

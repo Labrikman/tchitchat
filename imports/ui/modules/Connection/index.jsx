@@ -5,6 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import Body from '/imports/ui/components/Body';
 import Button from '/imports/ui/components/Button';
 import Flex from '/imports/ui/components/Flex';
+import Center from '/imports/ui/components/Center';
 import Form from '/imports/ui/components/Form';
 import StyledLink from '/imports/ui/components/StyledLink';
 
@@ -39,25 +40,27 @@ const Connection = () => {
   return (
 
     <Body>
-      <Form onSubmit={signin} >
-        <h1>Tchitchat connection</h1>
-        <Fields
-          update={update}
-          state={{ username, password }}
-        />
-        { erreur===1 ? 'incorrect pseudo or password' : '' }
-        <Flex>
-          <Button type="submit">
-            Signup
-          </Button>
-          <StyledLink to="/account/signup">
-            Inscription
-          </StyledLink>
-          <StyledLink to="/account/missing">
-            Missing
-          </StyledLink>
-        </Flex>
-      </Form>
+      <Center>
+        <Form onSubmit={signin} >
+          <h1>Tchitchat connection</h1>
+          <Fields
+            update={update}
+            state={{ username, password }}
+          />
+          { erreur===1 ? 'incorrect pseudo or password' : '' }
+          <Flex>
+            <Button type="submit">
+              Signup
+            </Button>
+            <StyledLink to="/account/signup">
+              Inscription
+            </StyledLink>
+            <StyledLink to="/account/missing">
+              Missing
+            </StyledLink>
+          </Flex>
+        </Form>
+      </Center>
     </Body>
   );
 }

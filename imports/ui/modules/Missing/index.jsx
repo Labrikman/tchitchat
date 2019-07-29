@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Body from '/imports/ui/components/Body';
 import Button from '/imports/ui/components/Button';
 import Flex from '/imports/ui/components/Flex';
+import Center from '/imports/ui/components/Center';
 import Form from '/imports/ui/components/Form';
 import StyledLink from '/imports/ui/components/StyledLink';
 
@@ -33,25 +34,27 @@ const Inscription = () => {
 
   return (
     <Body>
-      <Form>
-        <h1>Mot de passe oublié</h1>
-        <Fields
-          update={update}
-          state={{
-            username,
-            email,
-          }}
-        />
-        <Flex>
-            <StyledLink to="/account/signup">
-              Inscription
-            </StyledLink>
-            <StyledLink 
-              to="/account/signin"
-              >Connection
-            </StyledLink>
-        </Flex>
-      </Form>
+      <Center>
+        <Form>
+          <h1>Mot de passe oublié</h1>
+          <Fields
+            update={update}
+            state={{
+              username,
+              email,
+            }}
+          />
+          <Flex>
+              <StyledLink to="/account/signup">
+                Inscription
+              </StyledLink>
+              <StyledLink 
+                to="/account/signin"
+                >Connection
+              </StyledLink>
+          </Flex>
+        </Form>
+      </Center>
     </Body>
   );
 }

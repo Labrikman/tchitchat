@@ -23,10 +23,23 @@ class NewRoom extends Component {
   update = (e, { name, value }) => this.setState({ [name]: value });
 
   send = () => {
-    const { title } = this.state;
+    const { id, title } = this.state;
     const { history } = this.props;
     
     Meteor.call("rooms.create", { title }, (err) => {
+      if (err)
+        console.log(err);
+      else
+        history.push('/rooms');
+    });
+  }
+
+  edit = () => {
+    const { title } = this.state;
+    const { history } = this.props;
+    const id = this.props.match.params.id;
+
+    Meteor.call("rooms.update", { id, title }, (err) => {
       if (err)
         console.log(err);
       else
@@ -46,7 +59,10 @@ class NewRoom extends Component {
             update={this.update}
           />
           <Flex>
-            <Button onClick={this.send} >Créer room</Button>
+            { window.location.pathname!== "/new-room/add" ?
+              <Button onClick={this.edit} >Modifier room</Button> :
+              <Button onClick={this.send} >Créer room</Button>
+            }
             <StyledLink to={`/rooms`} >Back</StyledLink>            
           </Flex>
         </Center>

@@ -2,12 +2,13 @@ import { Meteor } from 'meteor/meteor';
 import Rooms from '..';
 
 Meteor.methods({
-  "rooms.create"({ title }) {
+  "rooms.create"({ id, title }) {
     if (!this.userId) {
       throw new Meteor.Error('403', 'You must be connected');
     }
     
     Rooms.insert({
+      id,
       title,
       createdAt: new Date(),
       userId: this.userId,
@@ -18,7 +19,9 @@ Meteor.methods({
     if (!this.userId) {
       throw new Meteor.Error('403', 'You must be connected');
     }
-
+    if (!title) {
+      throw new Meteor.Error('403', 'You must to rename you room');
+    }
     const room = Rooms.findOne(id);
 
     if (room.userId !== this.userId) {
