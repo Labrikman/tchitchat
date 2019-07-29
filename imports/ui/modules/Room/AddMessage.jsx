@@ -12,20 +12,15 @@ class AddMessage extends Component {
     content: "",
   }
 
-  update = (e, { name, value }) => {
-    this.setState({ [name]: value });
-  }
+  update = (e, { name, value }) => { this.setState({ [name]: value });}
  
-  resetInput = () => {
-    this.setState({ content: "" });
-  }
-
+  resetInput = () => { this.setState({ content: "" });}
 
   send = () => {
-    const { content, username, roomId } = this.state;
-    const { history } = this.props;
-    
-    Meteor.call("message.create", { content, username, roomId }, (err) => {
+    const { content } = this.state;
+    const { history, roomId } = this.props;
+
+    Meteor.call("message.create", { content, roomId }, (err) => {
       if (err)
         console.log(err);
       else
@@ -59,13 +54,6 @@ class AddMessage extends Component {
   }
 }
  
-export default withTracker(({}) => {
-    const roomId = URLSearchParams._id;
-    const username = Meteor.user.userId || "";
-    return {
-      userId: Meteor.userId(),
-      username: Meteor.user.username,
-      roomId,
-      username,
-    }
-})(AddMessage);
+export default withTracker(({}) => ({
+ userId: Meteor.userId(),
+}))(AddMessage);

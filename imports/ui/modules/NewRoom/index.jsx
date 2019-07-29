@@ -23,7 +23,7 @@ class NewRoom extends Component {
   update = (e, { name, value }) => this.setState({ [name]: value });
 
   send = () => {
-    const { id, title } = this.state;
+    const { title } = this.state;
     const { history } = this.props;
     
     Meteor.call("rooms.create", { title }, (err) => {

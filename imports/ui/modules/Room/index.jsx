@@ -15,7 +15,7 @@ const Room = ({ userId, messages, username, rooms, roomId }) => {
       <Redirect to="/accounts/signin" />
     );
   }
-
+  
   return (
       <Body>
         <Center>
@@ -28,7 +28,9 @@ const Room = ({ userId, messages, username, rooms, roomId }) => {
               </Article>
             ))}
          </Center>
-          <AddMessage />
+          <AddMessage 
+            roomId={roomId}
+          />
       </Body>
     )
   }
