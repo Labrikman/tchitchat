@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data'
 import Body from '/imports/ui/components/Body';
@@ -9,7 +9,20 @@ import AddMessage from './AddMessage';
 import Messages from '/imports/api/messages';
 import Rooms from '/imports/api/rooms';
 
-const Room = ({ userId, messages, username, rooms, roomId }) => {
+const Room = ({ userId, messages, roomId }) => {
+  const [roomTitle, setRoomTitle] = useState("");
+
+  console.log(roomTitle);
+
+  useEffect(() => {
+    Meteor.call('rooms.get_title_by_id', { roomId }, (err, result) => {
+      if (err)
+        console.log(err);
+      else
+        setRoomTitle(result);
+    })
+  }, [ roomId ]);
+
   if (!userId) {
     return (
       <Redirect to="/accounts/signin" />
@@ -19,6 +32,7 @@ const Room = ({ userId, messages, username, rooms, roomId }) => {
   return (
       <Body>
         <Center>
+          <h1>Room : </h1>
             {messages.map((message, index) => (
               <Article 
                 key={index} 
@@ -36,17 +50,12 @@ const Room = ({ userId, messages, username, rooms, roomId }) => {
   }
 
 export default withTracker(({ match }) => {
-  const messagesPublication = Meteor.subscribe('messages.lasts');
   const roomId = match.params.id || "";
+
+  const messagesPublication = Meteor.subscribe('messages.lasts_by_roomId', { roomId });
   const loading = !messagesPublication.ready();
-  const messages = Messages.find(
-    {}, 
-    { 
-      roomId: roomId,
-      sort: { createdAt: 1 } 
-    }
-  ).fetch();
-   
+  const messages = Messages.find({ roomId },  { sort: { createdAt: 1 }}).fetch();
+  
   return {
     userId: Meteor.userId(),
     user: Meteor.user() || {},

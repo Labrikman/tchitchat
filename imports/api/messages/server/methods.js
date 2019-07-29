@@ -11,7 +11,7 @@ Meteor.methods({
     }
 
     const username = this.userId.username;
-
+    
       Messages.insert({
         content,
         username,

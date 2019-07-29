@@ -15,6 +15,24 @@ Meteor.methods({
     });
   },
 
+  "rooms.get_title_by_id"({ roomId }) {
+    if (!this.userId) {
+      throw new Meteor.Error('403', 'You must be connected');
+    }
+
+    const room = Rooms.findOne(roomId, {
+      fields: {
+        title: 1,
+      }
+    });
+
+    if (!room) {
+      throw new Meteor.Error('404', 'Room not found');
+    }
+
+    return room.title;
+  },
+
   "rooms.update"({ id, title }) {
     if (!this.userId) {
       throw new Meteor.Error('403', 'You must be connected');
