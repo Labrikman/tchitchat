@@ -9,8 +9,6 @@ import StyledLink from '/imports/ui/components/StyledLink';
 
 class AddMessage extends Component {
   state={
-    username: "",
-    roomId: "",
     content: "",
   }
 
@@ -62,11 +60,12 @@ class AddMessage extends Component {
 }
  
 export default withTracker(({}) => {
-    const roomId = this.URLSearchParams.id;
+    const roomId = URLSearchParams._id;
     const username = Meteor.user.userId || "";
     return {
       userId: Meteor.userId(),
+      username: Meteor.user.username,
+      roomId,
       username,
-      roomId
     }
 })(AddMessage);

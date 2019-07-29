@@ -9,7 +9,7 @@ import AddMessage from './AddMessage';
 import Messages from '/imports/api/messages';
 import Rooms from '/imports/api/rooms';
 
-const Room = ({ userId, messages, rooms, roomId }) => {
+const Room = ({ userId, messages, username, rooms, roomId }) => {
   if (!userId) {
     return (
       <Redirect to="/accounts/signin" />
@@ -34,13 +34,15 @@ const Room = ({ userId, messages, rooms, roomId }) => {
   }
 
 export default withTracker(({ match }) => {
+  const messagesPublication = Meteor.subscribe('messages.lasts');
   const roomId = match.params.id || "";
-  const rooms = Rooms.findOne({ roomId : roomId });
-  const messagesPublication = Meteor.subscribe('messages.lasts', roomId);
   const loading = !messagesPublication.ready();
   const messages = Messages.find(
     {}, 
-    { sort: { createdAt: 1 } }
+    { 
+      roomId: roomId,
+      sort: { createdAt: 1 } 
+    }
   ).fetch();
    
   return {
@@ -49,7 +51,6 @@ export default withTracker(({ match }) => {
     loading,
     roomId,
     messages,
-    rooms,
   }
 })(Room);
 
