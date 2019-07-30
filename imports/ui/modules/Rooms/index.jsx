@@ -42,7 +42,7 @@ const Home = ({ user, userId, loading, rooms }) => {
                     title={room.title}
                     >Message
                   </StyledLink>
-                  {(rooms.userId === userId) && (
+                  {(room.userId === userId) && (
                     <div>
                         <StyledLink 
                           to={`/new-room/edit/${room._id}`} 

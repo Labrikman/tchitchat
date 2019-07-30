@@ -7,7 +7,6 @@ const Form = styled.form`
     width: fit-content;
     left: auto;
     padding: 10px;
-    border: 1px solid aqua;
     border-radius: 10px;
     max-height: fit-content;
 `;

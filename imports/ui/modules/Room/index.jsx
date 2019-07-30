@@ -9,10 +9,8 @@ import AddMessage from './AddMessage';
 import Messages from '/imports/api/messages';
 import Rooms from '/imports/api/rooms';
 
-const Room = ({ userId, messages, roomId }) => {
+const Room = ({ userId, messages, user, roomId }) => {
   const [roomTitle, setRoomTitle] = useState("");
-
-  console.log(roomTitle);
 
   useEffect(() => {
     Meteor.call('rooms.get_title_by_id', { roomId }, (err, result) => {
@@ -28,11 +26,11 @@ const Room = ({ userId, messages, roomId }) => {
       <Redirect to="/accounts/signin" />
     );
   }
-  
+
   return (
       <Body>
         <Center>
-          <h1>Room : </h1>
+          <h1>Room : {roomTitle}</h1>
             {messages.map((message, index) => (
               <Article 
                 key={index} 
@@ -41,10 +39,11 @@ const Room = ({ userId, messages, roomId }) => {
                 <div dangerouslySetInnerHTML={{ __html: message.content }} />
               </Article>
             ))}
-         </Center>
-          <AddMessage 
-            roomId={roomId}
-          />
+        </Center>
+        <AddMessage 
+          roomId={roomId}
+          username={user.username}
+        />
       </Body>
     )
   }

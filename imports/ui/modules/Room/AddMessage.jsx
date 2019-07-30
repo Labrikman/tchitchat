@@ -8,7 +8,7 @@ import Center from '/imports/ui/components/Center';
 import StyledLink from '/imports/ui/components/StyledLink';
 import Form from '../../components/Form';
 
-const AddMessage = ({ roomId }) => {
+const AddMessage = ({ roomId, username }) => {
   const [ content, setContent ] = useState("");
 
   const update = useCallback((e, { name, value }) => {
@@ -17,13 +17,13 @@ const AddMessage = ({ roomId }) => {
 
   const send = useCallback((e) => {
     e.preventDefault();
-    Meteor.call("message.create", { content, roomId }, (err) => {
+    Meteor.call("message.create", { content, roomId, username }, (err) => {
       if (err)
         console.log(err);
       else
         setContent("");
     });
-  }, [ content, roomId ]);
+  }, [ content, roomId, username ]);
 
   return (
     <Center>

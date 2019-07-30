@@ -6,6 +6,7 @@ Meteor.publish('rooms.lasts', () => {
         fields: {
             title: 1,
             createdAt: 1,
+            userId: 1,
         },
         sort: { createdAt: -1 },
         limit: 5000,
