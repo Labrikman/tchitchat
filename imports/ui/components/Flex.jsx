@@ -5,7 +5,8 @@ const Flex = styled.section`
     flex-wrap: wrap;
     flex-direction: row;
     width: fit-content;
-    margin: 20px 0;
+    margin: 10px 0;
+    align-items: center;
 `;
 
 

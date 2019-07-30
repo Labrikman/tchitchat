@@ -35,11 +35,12 @@ const Home = ({ user, userId, loading, rooms }) => {
           <div>
             {rooms.map(room => (
               <Article key={room._id}>
-                <h3>{room.title}</h3>
+                <h3 style={{ margin: '0'}}>{room.title}</h3>
                 <Flex>
                   <StyledLink 
                     to={`/room/${room._id}`}
                     title={room.title}
+                    style={{backgroundColor:'black', color:'aqua', height: '20px'}}
                     >Message
                   </StyledLink>
                   {(room.userId === userId) && (

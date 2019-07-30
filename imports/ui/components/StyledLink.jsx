@@ -12,7 +12,9 @@ const StyledLink = styled(Link)`
     width: fit-content;
     margin: 20px 10px 0 0;
     padding:10px;
+    line-height: 1.3em;
     text-decoration: none;
+    border: solid 1px aqua;
 `;
 
 

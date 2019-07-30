@@ -35,7 +35,7 @@ const Room = ({ userId, messages, user, roomId }) => {
               <Article 
                 key={index} 
                 style={ message.userId===userId ? { textAlign:'right' } : {textAlign: 'left'}}>
-                <h6>{message.username}</h6>
+                <strong style={{fontSize: '0.7em'}}>{message.username}</strong>
                 <div dangerouslySetInnerHTML={{ __html: message.content }} />
               </Article>
             ))}

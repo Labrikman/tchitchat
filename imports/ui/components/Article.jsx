@@ -8,7 +8,8 @@ const Article = styled.article`
     border-bottom: 1px solid aqua;
     max-width: 325px;
     overflow: hidden;
-    line-height: 14px;
+    line-height: 25px;
+    margin-top: 15px;
 `;
 
 
